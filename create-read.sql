@@ -69,6 +69,6 @@ INSERT INTO `Class Categories` (name)
 VALUES(:classCategoryNameInput);
 
 -- Insert into the Professors Table
-insert into Professors (name, street_address, city, state, zip_code, email)
+INSERT INTO Professors (name, street_address, city, state, zip_code, email)
 VALUES(:professorNameInput, :streetAddressInput, :cityInput, :stateInput, :zipCodeInput, :emailInput);
 
