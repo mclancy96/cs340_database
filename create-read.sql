@@ -35,3 +35,40 @@ FROM Professors;
 ------------------------------------------CREATE-------------------------------------------
 
 
+-- Insert Into the Students Table
+INSERT INTO Students (name, street_address, city, state, zip_code, email, phone_number)
+VALUES(:studentNameInput,:streeAddessInput,:cityInput, :stateInput, :zip_codeInput, :emailInput, :phoneNumberInput);
+
+
+-- get all professor ids and names to populate the professorId_dropdown input for inserting into the Classes Table
+SELECT professor_id, name
+FROM Professors;
+
+-- get all class category ids and names to populate the classCategoryID_dropdown input for inserting into the Classes Table 
+SELECT class_category_id, name
+FROM `Class Categories`;
+
+-- Insert into the Classes Table
+INSERT INTO Classes (professor_id, class_category_id, name, current_enrollment, max_enrollment)
+VALUES(:professorId_dropdown_input, :classCategoryID_dropdown_input, :classNameInput, :currentEnrollmentInput, :maxEnrollmentInput);
+
+-- get all student ids and names to populate the studentId_dropdown_input for inserting into the Registrations Table
+SELECT student_id, name
+FROM Students;
+
+-- get all class ids and names to populate the classId_dropdown_input for inserting into the Registrations Table
+SELECT class_id, name
+FROM Classes;
+
+-- Insert into the Registrations Table
+INSERT INTO Registrations (student_id, class_id, date_time_of_registration, semester)
+VALUES(:studentId_dropdown_input, :classId_dropdown_input, :dateInput, :semesterInput);
+
+-- Insert into the Class Categories Table
+INSERT INTO `Class Categories` (name)
+VALUES(:classCategoryNameInput);
+
+-- Insert into the Professors Table
+insert into Professors (name, street_address, city, state, zip_code, email)
+VALUES(:professorNameInput, :streetAddressInput, :cityInput, :stateInput, :zipCodeInput, :emailInput);
+
