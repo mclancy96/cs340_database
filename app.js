@@ -18,48 +18,48 @@ app.get('/', function (req, res) {
 // Students
 
 app.get('/students/students', function (req, res) {
-    res.sendFile("./students/students.html", { root: __dirname });
+    res.sendFile("./views/students/students.html", { root: __dirname });
 });
 
 app.get('/students/edit_students', function (req, res) {
-    res.sendFile("./students/edit_students.html", { root: __dirname });
+    res.sendFile("./views/students/edit_students.html", { root: __dirname });
 });
 
 
 // Class
 
 app.get('/classes/classes', function (req, res) {
-    res.sendFile("./classes/classes.html", { root: __dirname });
+    res.sendFile("./views/classes/classes.html", { root: __dirname });
 });
 
 app.get('/classes/edit_classes', function (req, res) {
-    res.sendFile("./classes/edit_classes.html", { root: __dirname });
+    res.sendFile("./views/classes/edit_classes.html", { root: __dirname });
 });
 
 // class categories
 
 app.get('/class_categories/class_category', function (req, res) {
-    res.sendFile("./class_categories/class_category.html", { root: __dirname });
+    res.sendFile("./views/class_categories/class_category.html", { root: __dirname });
 });
 
 app.get('/class_categories/edit_category', function (req, res) {
-    res.sendFile("./class_categories/edit_category.html", { root: __dirname });
+    res.sendFile("./views/class_categories/edit_category.html", { root: __dirname });
 });
 
 // professors
 
 app.get('/professors/professors', function (req, res) {
-    res.sendFile("./professors/professors.html", { root: __dirname });
+    res.sendFile("./views/professors/professors.html", { root: __dirname });
 });
 
 app.get('/professors/edit_professors', function (req, res) {
-    res.sendFile("./professors/edit_professors.html", { root: __dirname });
+    res.sendFile("./views/professors/edit_professors.html", { root: __dirname });
 });
 
 // registrations
 
 app.get('/registrations/registrations', function (req, res) {
-    res.sendFile("./registrations/registrations.html", { root: __dirname });
+    res.sendFile("./views/registrations/registrations.html", { root: __dirname });
 });
 
 
