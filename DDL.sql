@@ -12,7 +12,7 @@ CREATE OR REPLACE TABLE Class_Categories
 CREATE OR REPLACE TABLE Classes 
 (
   class_id int(11) NOT NULL AUTO_INCREMENT,
-  professor_id int(11) NOT NULL,
+  professor_id int(11),
   class_category_id int(11) NOT NULL,
   name varchar(145) NOT NULL,
   current_enrollment int(11) NOT NULL,
