@@ -4,6 +4,11 @@
 const express = require('express');
 var app = express();
 PORT = 5287;
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
 
 // Import routes
 const studentRoutes = require('./routes/student_routes');

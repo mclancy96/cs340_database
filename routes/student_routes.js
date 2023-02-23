@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+// const students = require('../services/students');
 
 
-router.get('/students', function (req, res) {
+router.get('/students', async function (req, res) {
+    // let studentResults = await students.getStudents();
     res.sendFile(path.join(__dirname, "../views/students/students.html"));
 });
 
