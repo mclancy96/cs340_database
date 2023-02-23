@@ -1,13 +1,15 @@
 /**
  * This file holds the configurations for our database.
  */
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const config = {
   db: {
-    host: "db4free.net",
-    user: "restapitest123",
-    password: "restapitest123",
-    database: "restapitest123",
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
   },
 };
 module.exports = config;
