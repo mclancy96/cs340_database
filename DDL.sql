@@ -49,7 +49,6 @@ CREATE OR REPLACE TABLE Students
   PRIMARY KEY (student_id)
 );
 
-
 CREATE OR REPLACE TABLE Registrations 
 (
   registration_id int(11) NOT NULL AUTO_INCREMENT,
@@ -63,9 +62,6 @@ CREATE OR REPLACE TABLE Registrations
   CONSTRAINT `fk_Registrations_Classes1` FOREIGN KEY (class_id) REFERENCES Classes (class_id) ON DELETE CASCADE,
   CONSTRAINT `fk_Registrations_Students` FOREIGN KEY (student_id) REFERENCES Students (student_id) ON DELETE CASCADE
 );
-
-
-
 
 INSERT INTO Class_Categories (name)
 VALUES ('Psychology'),
