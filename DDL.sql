@@ -9,6 +9,18 @@ CREATE OR REPLACE TABLE Class_Categories
   PRIMARY KEY (class_category_id)
 );
 
+CREATE OR REPLACE TABLE Professors 
+(
+  professor_id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(145) NOT NULL,
+  street_address varchar(145) NOT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  zip_code varchar(45) NOT NULL,
+  email varchar(45) NOT NULL,
+  PRIMARY KEY (professor_id)
+);
+
 CREATE OR REPLACE TABLE Classes 
 (
   class_id int(11) NOT NULL AUTO_INCREMENT,
@@ -24,18 +36,19 @@ CREATE OR REPLACE TABLE Classes
   CONSTRAINT `fk_Classes_Professors1` FOREIGN KEY (professor_id) REFERENCES Professors (professor_id) ON DELETE CASCADE
 );
 
-
-CREATE OR REPLACE TABLE Professors 
+CREATE OR REPLACE TABLE Students
 (
-  professor_id int(11) NOT NULL AUTO_INCREMENT,
+  student_id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(145) NOT NULL,
   street_address varchar(145) NOT NULL,
   city varchar(45) NOT NULL,
   state varchar(45) NOT NULL,
   zip_code varchar(45) NOT NULL,
   email varchar(45) NOT NULL,
-  PRIMARY KEY (professor_id)
+  phone_number varchar(45) NOT NULL,
+  PRIMARY KEY (student_id)
 );
+
 
 CREATE OR REPLACE TABLE Registrations 
 (
@@ -51,18 +64,7 @@ CREATE OR REPLACE TABLE Registrations
   CONSTRAINT `fk_Registrations_Students` FOREIGN KEY (student_id) REFERENCES Students (student_id) ON DELETE CASCADE
 );
 
-CREATE OR REPLACE TABLE Students
-(
-  student_id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(145) NOT NULL,
-  street_address varchar(145) NOT NULL,
-  city varchar(45) NOT NULL,
-  state varchar(45) NOT NULL,
-  zip_code varchar(45) NOT NULL,
-  email varchar(45) NOT NULL,
-  phone_number varchar(45) NOT NULL,
-  PRIMARY KEY (student_id)
-);
+
 
 
 INSERT INTO Class_Categories (name)
