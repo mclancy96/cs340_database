@@ -69,25 +69,26 @@ VALUES ('Psychology'),
 ('Computer Science'),
 ('Nursing');
 
-INSERT INTO Classes (professor_id, class_category_id, name, current_enrollment, max_enrollment)
-VALUES (1,1,'Psychology 101',0,30),
-(1,1,'Psychology 201',0,30),
-(2,2,'Intro to Geometry',0,100);
+INSERT INTO Students (name, street_address, city, state, zip_code, email, phone_number)
+VALUES ('Travis Bell','1 hello st','Chandler','NY','13941','travis.bell@example.com','(576) 254-3812'),
+('Caroline Lynch','2 bye st.','New York','LA','35397','caroline.lynch@example.com','(903) 425-6641'),
+('Ashley Pena','3 why st.','Arvada','RI','86584','ashley.pena@example.com','(508) 464-0886');
 
 INSERT INTO Professors (name, street_address, city, state, zip_code, email)
 VALUES ('Marito Viana','1 first st.','Yakima','TX','72556','marito.viana@example.com'),
 ('Andy Martin','2 second st.','Fullerton','WV','63361','andy.martin@example.com'),
 ('Wendy Miller','3 third st.','Houston','MI','46194','wendy.miller@example.com');
 
+
+INSERT INTO Classes (professor_id, class_category_id, name, current_enrollment, max_enrollment)
+VALUES (1,1,'Psychology 101',0,30),
+(1,1,'Psychology 201',0,30),
+(2,2,'Intro to Geometry',0,100);
+
 INSERT INTO Registrations (student_id, class_id, date_time_of_registration, semester) 
 VALUES (1,2,'2023-03-02','SUMMER 2023'),
 (2,3,'2023-02-04','SUMMER 2023'),
 (2,1,'2023-01-25','SUMMER 2023');
-
-INSERT INTO Students (name, street_address, city, state, zip_code, email, phone_number)
-VALUES ('Travis Bell','1 hello st','Chandler','NY','13941','travis.bell@example.com','(576) 254-3812'),
-('Caroline Lynch','2 bye st.','New York','LA','35397','caroline.lynch@example.com','(903) 425-6641'),
-('Ashley Pena','3 why st.','Arvada','RI','86584','ashley.pena@example.com','(508) 464-0886');
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
