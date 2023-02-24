@@ -5,7 +5,8 @@ const path = require('path');
 
 
 router.get('/students', async function (req, res) {
-    // let studentResults = await students.getStudents();
+    let studentResults = await students.getStudents();
+    console.log("studentResults: " + studentResults);
     res.sendFile(path.join(__dirname, "../views/students/students.html"));
 });
 
