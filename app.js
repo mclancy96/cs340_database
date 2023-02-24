@@ -11,7 +11,7 @@ app.use(
 );
 
 // Import routes
-const studentRoutes = require('./routes/student_routes');
+const studentRoutes = require('./routes/student_routes.js');
 const categoryRoutes = require('./routes/category_routes');
 const classRoutes = require('./routes/class_routes');
 const professorRoutes = require('./routes/professor_routes');
