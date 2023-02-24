@@ -5,10 +5,8 @@ const express = require('express');
 const router = express.Router();
 const students = require('../services/students');
 
-
 router.get('/students', async function (req, res) {
     let studentResults = await students.getStudents();
-    console.log("studentResults[0].name: " + studentResults[0].name);
     res.render("students/students");
 });
 
