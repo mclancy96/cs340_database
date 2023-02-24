@@ -18,7 +18,7 @@ const professorRoutes = require('./routes/professor_routes');
 const registrationRoutes = require('./routes/registration_routes');
 
 app.use(express.static(__dirname + "/public"));
-// app.set("view engine", "ejs");  if we choose to use ejs
+app.set("view engine", "ejs");
 
 
 /*

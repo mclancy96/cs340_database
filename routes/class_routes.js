@@ -1,14 +1,15 @@
+/**
+ * For routes regarding classes. Assigned to Mike
+ */
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-
 
 router.get('/classes', function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/classes/classes.html"));
+    res.render("classes/classes");
 });
 
 router.get('/classes/edit', function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/classes/edit_classes.html"));
+    res.render("classes/edit_classes");
 });
 
 module.exports = router;

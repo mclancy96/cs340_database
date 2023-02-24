@@ -1,17 +1,19 @@
+/**
+ * For routes regarding students. Assigned to Mike
+ */
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-// const students = require('../services/students');
+const students = require('../services/students');
 
 
 router.get('/students', async function (req, res) {
     let studentResults = await students.getStudents();
-    console.log("studentResults: " + studentResults);
-    res.sendFile(path.join(__dirname, "../views/students/students.html"));
+    console.log("studentResults[0].name: " + studentResults[0].name);
+    res.render("students/students");
 });
 
-router.get('/students/edit', function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/students/edit_students.html"));
+router.get('/students/:id/edit', function (req, res) {
+    res.render("students/edit_students");
 });
 
 module.exports = router;

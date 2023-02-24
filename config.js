@@ -1,8 +1,7 @@
 /**
  * This file holds the configurations for our database.
  */
-import * as dotenv from 'dotenv';
-dotenv.config();
+require("dotenv").config();
 
 const config = {
   db: {

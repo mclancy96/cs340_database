@@ -1,9 +1,11 @@
+/**
+ * For routes regarding registrations. Assigned to Mike
+ */
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 router.get('/registrations', function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/registrations/registrations.html"));
+    res.render("registrations/registrations");
 });
 
 module.exports = router;
