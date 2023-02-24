@@ -44,73 +44,45 @@
             </tr>
           </thead>
           <tbody>
+            <% students.forEach(student => {%>
             <tr>
-              <th scope="row">1</th>
-              <td>Stacey Mitchelle</td>
-              <td>1343 Poplar Dr</td>
-              <td>Rio Rancho</td>
-              <td>WI</td>
-              <td>60506</td>
-              <td>stacey.mitchelle@example.com</td>
-              <td>(977) 702-2067</td>
+              <th scope="row"><%=student.student_id%></th>
+              <td><%=student.name%></td>
+              <td><%=student.street_address%></td>
+              <td><%=student.city%></td>
+              <td><%=student.state%></td>
+              <td><%=student.zip_code%></td>
+              <td><%=student.email%></td>
+              <td><%=student.phone_number%></td>
               <td class="text-center">
-                <a href="/students/edit">Edit</a>
+                <a href="/students/<%=student.student_id%>/edit">Edit</a>
               </td>
               <td>
                 <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
+                  <form
+                    action="/students/<%= student.student_id %>/delete"
+                    method="POST"
+                  >
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
                 </div>
               </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Terra Lawrence</td>
-              <td>1675 Hunters Creek Dr</td>
-              <td>Burkburnett</td>
-              <td>WV</td>
-              <td>78564</td>
-              <td>terra.lawrence@example.com</td>
-              <td>(721) 751-3710</td>
-              <td class="text-center">
-                <a href="/students/edit">Edit</a>
-              </td>
-              <td>
-                <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Johnni Rhodes</td>
-              <td>8545 Avondale Ave</td>
-              <td>Lakewood</td>
-              <td>MI</td>
-              <td>63353</td>
-              <td>johnni.rhodes@example.com</td>
-              <td>(958) 652-5371</td>
-              <td class="text-center">
-                <a href="/students/edit">Edit</a>
-              </td>
-              <td>
-                <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </td>
-            </tr>
+            <% }) %>
           </tbody>
         </table>
       </div>
     </div>
     <h2 class="text-center">Add a New Student</h2>
     <div class="container">
-      <form>
+      <form action="/students/create" method="POST">
         <div class="form-group">
           <label for="addStudentName">New Student Name</label>
           <input
             type="text"
             class="form-control"
             id="addStudentName"
+            name="name"
             placeholder="Enter New Student Name"
           />
         </div>
@@ -120,6 +92,7 @@
             type="text"
             class="form-control"
             id="addAddress"
+            name="street_address"
             placeholder="Enter Street Address"
           />
         </div>
@@ -130,6 +103,7 @@
             class="form-control"
             id="addCity"
             placeholder="Enter City"
+            name="city"
           />
         </div>
         <div class="form-group">
@@ -138,6 +112,7 @@
             type="text"
             class="form-control"
             id="addState"
+            name="state"
             placeholder="Enter State"
           />
         </div>
@@ -147,6 +122,7 @@
             type="text"
             class="form-control"
             id="addZipCode"
+            name="zip_code"
             placeholder="Enter Zip Code"
           />
         </div>
@@ -156,15 +132,17 @@
             type="email"
             class="form-control"
             id="addEmail"
+            name="email"
             placeholder="Enter Email"
           />
         </div>
         <div class="form-group">
           <label for="editPhone">Phone</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             id="editPhone"
+            name="phone_number"
             placeholder="Enter Phone Number"
           />
         </div>
