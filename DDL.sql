@@ -29,6 +29,7 @@ CREATE OR REPLACE TABLE Classes
   name varchar(145) NOT NULL,
   current_enrollment int(11) NOT NULL,
   max_enrollment int(11) NOT NULL,
+  semester varchar(145) NOT NULL,
   PRIMARY KEY (class_id),
   KEY `fk_Classes_Professors1_idx` (professor_id),
   KEY `fk_Classes_Class Categories1_idx` (class_category_id),

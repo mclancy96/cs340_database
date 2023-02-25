@@ -3,6 +3,12 @@
  */
 const express = require('express');
 const router = express.Router();
+const classes = require('../services/classes');
+router.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
 
 router.get('/classes', function (req, res) {
     res.render("classes/classes");
