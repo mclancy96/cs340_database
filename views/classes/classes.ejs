@@ -35,64 +35,45 @@
               <th scope="col">Class Name</th>
               <th scope="col">Current Enrollment</th>
               <th scope="col">Max Enrollment</th>
+              <th scope="col">Semester</th>
               <th scope="col">Professor</th>
+              <th scope="col">Class Category</th>
               <th scope="col">Edit Class</th>
               <th scope="col">Delete Class</th>
             </tr>
           </thead>
           <tbody>
+            <% classes.forEach((class_inst) => {%>
             <tr>
-              <th scope="row">1</th>
-              <td>Computers 101</td>
-              <td>0</td>
-              <td>30</td>
-              <td>Marito Viana</td>
+              <th scope="row"><%= class_inst.class_id %></th>
+              <td><%= class_inst.name %></td>
+              <td><%= class_inst.current_enrollment %></td>
+              <td><%= class_inst.max_enrollment %></td>
+              <td><%= class_inst.semester %></td>
+              <td><%= class_inst.professor_id %></td>
+              <td><%= class_inst.class_category_id %></td>
               <td class="text-center">
-                <a href="/classes/edit">Edit</a>
+                <a href="/classes/<%=class_inst.class_id%>/edit">Edit</a>
               </td>
               <td>
                 <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
+                  <form
+                    action="/classes/<%=class_inst.class_id%>/delete"
+                    method="POST"
+                  >
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
                 </div>
               </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Computers 201</td>
-              <td>0</td>
-              <td>30</td>
-              <td>Andy Martin</td>
-              <td class="text-center">
-                <a href="/classes/edit">Edit</a>
-              </td>
-              <td>
-                <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Computers 301</td>
-              <td>0</td>
-              <td>30</td>
-              <td>Wendy Miller</td>
-              <td class="text-center">
-                <a href="/classes/edit">Edit</a>
-              </td>
-              <td>
-                <div class="text-center">
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </td>
-            </tr>
+            <%}) %>
           </tbody>
         </table>
       </div>
     </div>
     <h2 class="text-center">Add a New Class</h2>
     <div class="container">
-      <form>
+      <form action="/classes/create" method="POST">
         <div class="form-group">
           <label for="addClassName">New Class Name</label>
           <input
@@ -100,6 +81,7 @@
             class="form-control"
             id="addClassName"
             placeholder="Enter New Class Name"
+            name="name"
           />
         </div>
         <div class="form-group">
@@ -108,17 +90,43 @@
             type="text"
             class="form-control"
             id="addEnrollment"
-            placeholder="Enter Street Enrollment"
+            placeholder="Enter Max Enrollment"
+            name="max_enrollment"
           />
         </div>
         <div class="form-group">
-          <label for="addProfessor">Professor</label>
+          <label for="addSemester">Semester</label>
           <input
             type="text"
             class="form-control"
-            id="addProfessor"
-            placeholder="Enter Professor"
+            id="addSemester"
+            placeholder="Enter Semester"
+            name="semester"
           />
+        </div>
+        <div class="form-group">
+          <label for="addProfessorId">Professor</label>
+          <select name="professor_id" class="custom-select" id="addProfessorID">
+            <% professors.forEach((professor) => {%>
+            <option value="<%=professor.professor_id%>">
+              <%=professor.name%>
+            </option>
+            <%}) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="addCategoryId">Category</label>
+          <select
+            name="class_category_id"
+            class="custom-select"
+            id="addCategoryID"
+          >
+            <% categories.forEach((category) => {%>
+            <option value="<%=category.class_category_id%>">
+              <%=category.name%>
+            </option>
+            <%}) %>
+          </select>
         </div>
         <div class="text-center m-3">
           <button type="submit" class="btn btn-primary">Create Class</button>

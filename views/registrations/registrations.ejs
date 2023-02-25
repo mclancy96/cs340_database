@@ -70,7 +70,6 @@
         <div class="form-group">
           <label for="addStudentID">Student ID</label>
           <select name="student_id" class="custom-select" id="addStudentID">
-            <option selected>Select a Student</option>
             <% students.forEach(student => {%>
             <option value="<%=student.student_id%>"><%=student.name%></option>
             <%}) %>
@@ -79,7 +78,6 @@
         <div class="form-group">
           <label for="addClassID">Class ID</label>
           <select name="class_id" class="custom-select" id="addClassID">
-            <option selected>Select a Class</option>
             <% classes.forEach(classInst => {%>
             <option value="<%=classInst.class_id%>"><%=classInst.name%></option>
             <%}) %>

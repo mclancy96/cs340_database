@@ -4,18 +4,64 @@
 const express = require('express');
 const router = express.Router();
 const classes = require('../services/classes');
+const professor = require('../services/professors');
+const categories = require('../services/categories');
 router.use(
     express.urlencoded({
         extended: true,
     })
 );
 
-router.get('/classes', function (req, res) {
-    res.render("classes/classes");
+// Read all
+router.get('/classes', async function (req, res) {
+    const classResults = await classes.getClasses();
+    const professorResults = await professor.getProfessors();
+    const categoryResults = await categories.getCategories();
+    res.render("classes/classes", { classes: classResults, professors: professorResults, categories: categoryResults });
 });
 
-router.get('/classes/edit', function (req, res) {
-    res.render("classes/edit_classes");
+// Create
+router.post('/classes/create', async function (req, res) {
+    try {
+        await classes.createClass(req.body);
+        res.redirect("/classes");
+    }
+    catch (err) {
+        console.log("Error creating class: ", err);
+        res.redirect('/classes');
+    }
+});
+
+// Read One
+router.get('/classes/:id/edit', async function (req, res) {
+    const classResult = await classes.getClassById(req.params.id);
+    const professorResults = await professor.getProfessors();
+    const categoryResults = await categories.getCategories();
+    res.render("classes/edit_classes", { class_inst: classResult[0], professors: professorResults, categories: categoryResults });
+});
+
+// Update
+router.post('/classes/:id/edit', async function (req, res) {
+    try {
+        await classes.updateClass(req.params.id, req.body);
+        res.redirect("/classes");
+    }
+    catch (err) {
+        console.log("Error updating class: ", err);
+        res.redirect('/classes');
+    }
+});
+
+// Delete
+router.post('/classes/:id/delete', async function (req, res) {
+    try {
+        await classes.deleteClass(req.params.id);
+        res.redirect("/classes");
+    }
+    catch (err) {
+        console.log("Error deleting class: ", err);
+        res.redirect('/classes');
+    }
 });
 
 module.exports = router;
