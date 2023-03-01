@@ -55,7 +55,6 @@ async function deleteProfessor(professorId) {
 }
 
 
-
 module.exports = {
     getProfessors,
     getProfessorById,
