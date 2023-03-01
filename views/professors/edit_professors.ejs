@@ -26,15 +26,16 @@
       </a>
     </div>
     <div class="container">
-      <form>
-        <p>Professor ID: 1</p>
+      <form action="/professors/<%=professor.professor_id%>/edit" method="POST">
+        <p>Professor ID: <%=professor.professor_id%></p>
         <div class="form-group">
           <label for="editProfessorName">Professor Name</label>
           <input
             type="text"
             class="form-control"
             id="editProfessorName"
-            value="Marito Viana"
+            name="name"
+            value="<%=professor.name%>"
           />
         </div>
         <div class="form-group">
@@ -43,7 +44,8 @@
             type="text"
             class="form-control"
             id="editAddress"
-            value="1 First St"
+            name="street_address"
+            value="<%=professor.street_address%>"
           />
         </div>
         <div class="form-group">
@@ -52,12 +54,19 @@
             type="text"
             class="form-control"
             id="editCity"
-            value="Yakima"
+            name="city"
+            value="<%=professor.city%>"
           />
         </div>
         <div class="form-group">
           <label for="editState">State</label>
-          <input type="text" class="form-control" id="editState" value="TX" />
+          <input 
+            type="text" 
+            class="form-control" 
+            id="editState"
+            name="state" 
+            value="<%=professor.state%>" 
+          />
         </div>
         <div class="form-group">
           <label for="editZipCode">Zip Code</label>
@@ -65,7 +74,8 @@
             type="text"
             class="form-control"
             id="editZipCode"
-            value="72566"
+            name="zip_code"
+            value="<%=professor.zip_code%>"
           />
         </div>
         <div class="form-group">
@@ -74,7 +84,8 @@
             type="email"
             class="form-control"
             id="editEmail"
-            value="marito.viana@example.com"
+            name="email"
+            value="<%=professor.email%>"
           />
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
