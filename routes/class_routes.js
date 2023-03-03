@@ -32,6 +32,14 @@ router.post('/classes/create', async function (req, res) {
     }
 });
 
+// Read One
+router.get('/classes/:id', async function (req, res) {
+    const classResult = await classes.getClassById(req.params.id);
+    const professorResults = await professor.getProfessors();
+    const categoryResults = await categories.getCategories();
+    res.render("classes/edit_classes", { class_inst: classResult[0], professors: professorResults, categories: categoryResults });
+});
+
 // Update
 router.post('/classes/:id/edit', async function (req, res) {
     try {
