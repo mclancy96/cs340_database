@@ -26,15 +26,16 @@
       </a>
     </div>
     <div class="container">
-      <form>
-        <p>Category ID: 1</p>
+      <form action="/class_categories/<%=category.class_category_id%>/edit" method="POST">
+        <p>Category ID: <%=category.class_category_id%></p>
         <div class="form-group">
           <label for="editCategoryName">Category Name</label>
           <input
             type="text"
             class="form-control"
             id="editCategoryName"
-            value="Psychology"
+            name="name"
+            value="<%=category.name%>"
           />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
