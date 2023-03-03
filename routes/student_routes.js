@@ -28,12 +28,6 @@ router.post('/students/create', async function (req, res) {
     }
 });
 
-// Read One
-router.get('/students/:id/edit', async function (req, res) {
-    const studentResult = await students.getStudentById(req.params.id);
-    res.render("students/edit_students", { student: studentResult[0] });
-});
-
 // Update
 router.post('/students/:id/edit', async function (req, res) {
     try {
