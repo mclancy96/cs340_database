@@ -68,7 +68,7 @@
     <div class="container">
       <form action="/registrations/create" method="POST">
         <div class="form-group">
-          <label for="addStudentID">Student ID</label>
+          <label for="addStudentID">Student</label>
           <select name="student_id" class="custom-select" id="addStudentID">
             <% students.forEach(student => {%>
             <option value="<%=student.student_id%>"><%=student.name%></option>
@@ -76,7 +76,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="addClassID">Class ID</label>
+          <label for="addClassID">Class</label>
           <select name="class_id" class="custom-select" id="addClassID">
             <% classes.forEach(classInst => {%>
             <option value="<%=classInst.class_id%>"><%=classInst.name%></option>
