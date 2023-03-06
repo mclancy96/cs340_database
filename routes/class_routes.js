@@ -33,7 +33,7 @@ router.post('/classes/create', async function (req, res) {
 });
 
 // Read One
-router.get('/classes/:id', async function (req, res) {
+router.get('/classes/:id/edit', async function (req, res) {
     const classResult = await classes.getClassById(req.params.id);
     const professorResults = await professor.getProfessors();
     const categoryResults = await categories.getCategories();
