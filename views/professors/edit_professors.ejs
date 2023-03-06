@@ -62,7 +62,11 @@
             id="editState"
             name="state"
             value="<%=professor.state%>"
+            aria-describedby="stateHelp"
           />
+          <small id="stateHelp" class="form-text text-muted"
+            >Abbreviation not full state. Example: <i>NJ</i></small
+          >
         </div>
         <div class="form-group">
           <label for="editZipCode">Zip Code</label>

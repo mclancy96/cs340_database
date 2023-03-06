@@ -114,7 +114,11 @@
             id="addState"
             name="state"
             placeholder="Enter State"
+            aria-describedby="stateHelp"
           />
+          <small id="stateHelp" class="form-text text-muted"
+            >Abbreviation not full state. Example: <i>NJ</i></small
+          >
         </div>
         <div class="form-group">
           <label for="addZipCode">Zip Code</label>
@@ -144,7 +148,11 @@
             id="editPhone"
             name="phone_number"
             placeholder="Enter Phone Number"
+            aria-describedby="phoneHelp"
           />
+          <small id="phoneHelp" class="form-text text-muted"
+            >Example: <i>123-456-7890</i></small
+          >
         </div>
         <div class="text-center m-3">
           <button type="submit" class="btn btn-primary">Create Student</button>
