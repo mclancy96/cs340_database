@@ -44,7 +44,11 @@
               <th scope="row"><%=category.class_category_id%></th>
               <td><%=category.name%></td>
               <td class="text-center">
-                <a href="/class_categories/<%=category.class_category_id%>/edit">Edit</a>
+                <a href="/class_categories/<%=category.class_category_id%>/edit"
+                  ><button type="submit" class="btn btn-success">
+                    Edit
+                  </button></a
+                >
               </td>
               <td>
                 <div class="text-center">
@@ -52,7 +56,7 @@
                     action="/class_categories/<%=category.class_category_id%>/delete"
                     method="POST"
                   >
-                  <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                   </form>
                 </div>
               </td>

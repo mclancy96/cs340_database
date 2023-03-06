@@ -50,10 +50,20 @@
               <td><%= class_inst.current_enrollment %></td>
               <td><%= class_inst.max_enrollment %></td>
               <td><%= class_inst.semester %></td>
-              <td><%= class_inst.professor_id %></td>
-              <td><%= class_inst.class_category_id %></td>
+              <td>
+                <%= class_inst.professor_id %>: <%= professors.find(pro =>
+                pro.professor_id == class_inst.professor_id).name %>
+              </td>
+              <td>
+                <%= class_inst.class_category_id %>: <%= categories.find(cat =>
+                cat.class_category_id == class_inst.class_category_id).name %>
+              </td>
               <td class="text-center">
-                <a href="/classes/<%=class_inst.class_id%>/edit">Edit</a>
+                <a href="/classes/<%=class_inst.class_id%>/edit"
+                  ><button type="submit" class="btn btn-success">
+                    Edit
+                  </button></a
+                >
               </td>
               <td>
                 <div class="text-center">
