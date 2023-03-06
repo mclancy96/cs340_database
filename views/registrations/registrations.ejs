@@ -21,19 +21,15 @@
   <body>
     <h1 class="text-center">Registrations</h1>
     <h2 class="text-center">Display all Registrations</h2>
-    <div class="text-center m-3">
-      <a href="/" class="text-white"
-        ><button type="button" class="btn btn-primary text-center">Home</button>
-      </a>
-    </div>
+    <%- include('../navbar') %>
     <div class="row justify-content-center">
       <div class="col-auto">
         <table class="table table-responsive table-bordered">
           <thead>
             <tr>
               <th scope="col">Registration ID</th>
-              <th scope="col">Student ID</th>
-              <th scope="col">Class ID</th>
+              <th scope="col">Student</th>
+              <th scope="col">Class</th>
               <th scope="col">Date Registered</th>
               <th scope="col">Semester</th>
               <th scope="col">Delete Registration</th>
@@ -43,8 +39,14 @@
             <% registrations.forEach(registration => {%>
             <tr>
               <th scope="row"><%=registration.registration_id%></th>
-              <td><%=registration.student_id%></td>
-              <td><%=registration.class_id%></td>
+              <td>
+                <%=registration.student_id%>: <%= students.find(stu =>
+                stu.student_id == registration.student_id).name %>
+              </td>
+              <td>
+                <%=registration.class_id%>: <%= classes.find(classs =>
+                classs.class_id == registration.class_id).name %>
+              </td>
               <td><%=registration.date_time_of_registration%></td>
               <td><%=registration.semester%></td>
               <td>
