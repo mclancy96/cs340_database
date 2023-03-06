@@ -20,11 +20,7 @@
   </head>
   <body>
     <h1 class="text-center">Edit Student</h1>
-    <div class="text-center m-3">
-      <a href="/" class="text-white"
-        ><button type="button" class="btn btn-primary text-center">Home</button>
-      </a>
-    </div>
+    <%- include('../navbar') %>
     <div class="container">
       <form action="/students/<%=student.student_id%>/edit" method="POST">
         <p>Student ID: <%=student.student_id%></p>
