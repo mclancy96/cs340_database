@@ -30,13 +30,12 @@ async function getClassById(classId) {
 
 async function createClass(classObject) {
     const updateStatus = await db.query(
-        `INSERT INTO Classes (name, professor_id, class_category_id, current_enrollment, max_enrollment, semester)
+        `INSERT INTO Classes (name, professor_id, class_category_id, current_enrollment, max_enrollment)
         VALUES("${classObject.name}", 
         "${classObject.professor_id}",
         "${classObject.class_category_id}", 
         "0", 
-        "${classObject.max_enrollment}", 
-        "${classObject.semester}");`
+        "${classObject.max_enrollment}");`
     );
     return updateStatus;
 }
@@ -47,8 +46,7 @@ async function updateClass(classId, classObject) {
         SET name = "${classObject.name}", 
         professor_id= "${classObject.professor_id}",
         class_category_id="${classObject.class_category_id}", 
-        max_enrollment = "${classObject.max_enrollment}", 
-        semester = "${classObject.semester}"
+        max_enrollment = "${classObject.max_enrollment}"
         WHERE class_id = "${classId}";`
     );
     return updateStatus;
