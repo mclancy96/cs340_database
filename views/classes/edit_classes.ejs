@@ -32,6 +32,7 @@
             id="addClassName"
             value="<%= class_inst.name%>"
             name="name"
+            required
           />
         </div>
         <div class="form-group">
@@ -42,6 +43,7 @@
             id="addEnrollment"
             value="<%= class_inst.current_enrollment%>"
             name="current_enrollment"
+            required
           />
         </div>
         <div class="form-group">
@@ -52,6 +54,7 @@
             id="addMaxEnrollment"
             value="<%= class_inst.max_enrollment%>"
             name="max_enrollment"
+            required
           />
         </div>
         <div class="form-group">
@@ -63,6 +66,7 @@
             value="<%= class_inst.semester%>"
             name="semester"
             aria-describedby="semesterHelp"
+            required
             />
             <small id="semesterHelp" class="form-text text-muted"
               >Example: <i>SUMMER 2023</i></small
@@ -84,6 +88,7 @@
             name="class_category_id"
             class="custom-select"
             id="addCategoryID"
+            required
           >
             <% categories.forEach((category) => {%>
             <option value="<%=category.class_category_id%>" <%=class_inst.class_category_id == category.class_category_id ? "selected" : ""%>>

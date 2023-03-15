@@ -32,6 +32,7 @@
             id="editProfessorName"
             name="name"
             value="<%=professor.name%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -42,6 +43,7 @@
             id="editAddress"
             name="street_address"
             value="<%=professor.street_address%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -52,6 +54,7 @@
             id="editCity"
             name="city"
             value="<%=professor.city%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -63,6 +66,7 @@
             name="state"
             value="<%=professor.state%>"
             aria-describedby="stateHelp"
+            required
           />
           <small id="stateHelp" class="form-text text-muted"
             >Abbreviation not full state. Example: <i>NJ</i></small
@@ -76,6 +80,7 @@
             id="editZipCode"
             name="zip_code"
             value="<%=professor.zip_code%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -86,6 +91,7 @@
             id="editEmail"
             name="email"
             value="<%=professor.email%>"
+            required
           />
         </div>
         <a href="/professors"

@@ -71,7 +71,12 @@
       <form action="/registrations/create" method="POST">
         <div class="form-group">
           <label for="addStudentID">Student</label>
-          <select name="student_id" class="custom-select" id="addStudentID">
+          <select
+            name="student_id"
+            class="custom-select"
+            id="addStudentID"
+            required
+          >
             <% students.forEach(student => {%>
             <option value="<%=student.student_id%>"><%=student.student_id%>: <%=student.name%></option>
             <%}) %>
@@ -79,7 +84,12 @@
         </div>
         <div class="form-group">
           <label for="addClassID">Class</label>
-          <select name="class_id" class="custom-select" id="addClassID">
+          <select
+            name="class_id"
+            class="custom-select"
+            id="addClassID"
+            required
+          >
             <% classes.forEach(classInst => {%>
             <option value="<%=classInst.class_id%>"><%=classInst.class_id%>: <%=classInst.name%></option>
             <%}) %>

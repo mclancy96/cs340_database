@@ -32,6 +32,7 @@
             id="editStudentName"
             name="name"
             value="<%=student.name%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -42,6 +43,7 @@
             id="editAddress"
             name="street_address"
             value="<%=student.street_address%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -52,6 +54,7 @@
             id="editCity"
             name="city"
             value="<%=student.city%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -63,6 +66,7 @@
             name="state"
             value="<%=student.state%>"
             aria-describedby="stateHelp"
+            required
           />
           <small id="stateHelp" class="form-text text-muted"
             >Abbreviation not full state. Example: <i>NJ</i></small
@@ -76,6 +80,7 @@
             id="editZipCode"
             name="zip_code"
             value="<%=student.zip_code%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -86,6 +91,7 @@
             id="editEmail"
             name="email"
             value="<%=student.email%>"
+            required
           />
         </div>
         <div class="form-group">
@@ -97,6 +103,7 @@
             name="phone_number"
             value="<%=student.phone_number%>"
             aria-describedby="phoneHelp"
+            required
           />
           <small id="phoneHelp" class="form-text text-muted"
             >Example: <i>123-456-7890</i></small
