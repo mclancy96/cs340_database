@@ -17,7 +17,7 @@ router.get('/classes', async function (req, res) {
     const classResults = await classes.getClasses();
     const professorResults = await professor.getProfessors();
     const categoryResults = await categories.getCategories();
-    res.render("classes/classes", { classes: classResults, professors: professorResults, categories: categoryResults });
+    res.render("classes/classes", { classes: classResults, professors: professorResults, categories: categoryResults});
 });
 
 // Create
