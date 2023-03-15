@@ -8,13 +8,13 @@ city, state, zip_code, email, phone_number
 FROM Students;
 
 -- display all classes from Classes table
-SELECT Classes.class_id, Professors.name AS professor_name, `Class Categories`.name AS class_category_name, 
+SELECT Classes.class_id, Professors.name AS professor_name, Class_Categories.name AS class_category_name, 
 Classes.name AS class_name, Classes.current_enrollment, Classes.max_enrollment
 FROM Classes
     INNER JOIN Professors
     ON Classes.professor_id = Professors.professor_id
-    INNER JOIN `Class Categories`
-    ON Classes.class_category_id = `Class Categories`.class_category_id;
+    INNER JOIN Class_Categories
+    ON Classes.class_category_id = Class_Categories.class_category_id;
 
 -- display all registrations from Registration table
 SELECT Registrations.registration_id, Students.name AS student_name, Classes.name AS class_name, 
@@ -27,7 +27,7 @@ FROM Registrations
 
 -- display all class categories from Class Categories table
 SELECT class_category_id, name AS class_category_name
-FROM `Class Categories`;
+FROM Class_Categories;
 
 -- display all professors from the Professors table
 SELECT professor_id, name AS professor_name, street_address,
@@ -48,7 +48,7 @@ FROM Professors;
 
 -- get all class category ids and names to populate the classCategoryID_dropdown input for inserting into the Classes Table 
 SELECT class_category_id, name
-FROM `Class Categories`;
+FROM Class_Categories;
 
 -- Insert into the Classes Table
 INSERT INTO Classes (professor_id, class_category_id, name, current_enrollment, max_enrollment)
@@ -67,7 +67,7 @@ INSERT INTO Registrations (student_id, class_id, date_time_of_registration, seme
 VALUES(:studentId_dropdown_input, :classId_dropdown_input, :dateInput, :semesterInput);
 
 -- Insert into the Class Categories Table
-INSERT INTO `Class Categories` (name)
+INSERT INTO Class_Categories (name)
 VALUES(:classCategoryNameInput);
 
 -- Insert into the Professors Table
@@ -84,7 +84,7 @@ WHERE condition;
 
 -- Update One Entry in Class Categories Table
 
-UPDATE `Class Categories`
+UPDATE Class_Categories
 SET name = :classCategoryNameInput
 WHERE class_category_id = :class_category_id;
 
@@ -133,11 +133,11 @@ DELETE FROM Students;
 
 -- Delete one entry from Class Categories table
 
-DELETE FROM `Class Categories` WHERE class_category_id = :class_category_id;
+DELETE FROM Class_Categories WHERE class_category_id = :class_category_id;
 
 -- Delete all entries from Class Categories table
 
-DELETE FROM `Class Categories`;
+DELETE FROM Class_Categories;
 
 -- Delete one entry from Classes table
 
