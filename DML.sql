@@ -9,12 +9,15 @@ FROM Students;
 
 -- display all classes from Classes table
 SELECT Classes.class_id, Professors.name AS professor_name, Class_Categories.name AS class_category_name, 
-Classes.name AS class_name, Classes.current_enrollment, Classes.max_enrollment
+Classes.name AS class_name, COUNT(Registrations.class_id) AS current_enrollment, Classes.max_enrollment
 FROM Classes
     INNER JOIN Professors
     ON Classes.professor_id = Professors.professor_id
     INNER JOIN Class_Categories
-    ON Classes.class_category_id = Class_Categories.class_category_id;
+    ON Classes.class_category_id = Class_Categories.class_category_id
+    LEFT JOIN Registrations
+    ON Classes.class_id = Registrations.class_id
+GROUP BY Classes.class_id;
 
 -- display all registrations from Registration table
 SELECT Registrations.registration_id, Students.name AS student_name, Classes.name AS class_name, 

@@ -6,7 +6,16 @@ const db = require('./db');
 
 async function getClasses() {
     const classes = await db.query(
-        `SELECT * FROM Classes`
+        `SELECT Classes.class_id, Professors.professor_id AS professor_id, Professors.name AS professor_name, Class_Categories.class_category_id AS category_id, Class_Categories.name AS class_category_name, 
+            Classes.name AS class_name, COUNT(Registrations.class_id) AS current_enrollment, Classes.max_enrollment
+        FROM Classes
+            INNER JOIN Professors
+            ON Classes.professor_id = Professors.professor_id
+            INNER JOIN Class_Categories
+            ON Classes.class_category_id = Class_Categories.class_category_id
+            LEFT JOIN Registrations
+            ON Classes.class_id = Registrations.class_id
+        GROUP BY Classes.class_id`
     );
 
     return classes;
