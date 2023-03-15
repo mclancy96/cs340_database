@@ -117,6 +117,7 @@
         <div class="form-group">
           <label for="addProfessorId">Professor</label>
           <select name="professor_id" class="custom-select" id="addProfessorID">
+            <option value=""></option>
             <% professors.forEach((professor) => {%>
             <option value="<%=professor.professor_id%>">
               <%=professor.professor_id%>: <%=professor.name%>
