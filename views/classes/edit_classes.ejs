@@ -73,7 +73,7 @@
           <select name="professor_id" class="custom-select" id="addProfessorID">
             <% professors.forEach((professor) => {%>
             <option value="<%=professor.professor_id%>" <%=class_inst.professor_id == professor.professor_id ? "selected" : ""%>>
-              <%=professor.name%>
+              <%=professor.professor_id%>: <%=professor.name%>
             </option>
             <%}) %>
           </select>
@@ -87,7 +87,7 @@
           >
             <% categories.forEach((category) => {%>
             <option value="<%=category.class_category_id%>" <%=class_inst.class_category_id == category.class_category_id ? "selected" : ""%>>
-              <%=category.name%>
+              <%=category.class_category_id%>: <%=category.name%>
             </option>
             <%}) %>
           </select>
