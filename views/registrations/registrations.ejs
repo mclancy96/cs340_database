@@ -78,7 +78,9 @@
             required
           >
             <% students.forEach(student => {%>
-            <option value="<%=student.student_id%>"><%=student.student_id%>: <%=student.name%></option>
+            <option value="<%=student.student_id%>">
+              <%=student.student_id%>: <%=student.name%>
+            </option>
             <%}) %>
           </select>
         </div>
@@ -91,7 +93,9 @@
             required
           >
             <% classes.forEach(classInst => {%>
-            <option value="<%=classInst.class_id%>"><%=classInst.class_id%>: <%=classInst.name%></option>
+            <option value="<%=classInst.class_id%>">
+              <%=classInst.class_id%>: <%=classInst.class_name%>
+            </option>
             <%}) %>
           </select>
         </div>

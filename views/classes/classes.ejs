@@ -31,7 +31,6 @@
               <th scope="col">Class Name</th>
               <th scope="col">Current Enrollment</th>
               <th scope="col">Max Enrollment</th>
-              <th scope="col">Semester</th>
               <th scope="col">Professor</th>
               <th scope="col">Class Category</th>
               <th scope="col">Edit Class</th>
@@ -39,13 +38,12 @@
             </tr>
           </thead>
           <tbody>
-            <% classes.forEach((class_inst) => {%>
+            <% classes.forEach((class_inst) => {%> <%console.log(class_inst)%>
             <tr>
               <th scope="row"><%= class_inst.class_id %></th>
               <td><%= class_inst.class_name %></td>
               <td><%= class_inst.current_enrollment %></td>
               <td><%= class_inst.max_enrollment %></td>
-              <td><%= class_inst.semester %></td>
               <td>
                 <%= class_inst.professor_id %>: <%= class_inst.professor_name %>
               </td>
@@ -119,7 +117,6 @@
         <div class="form-group">
           <label for="addProfessorId">Professor</label>
           <select name="professor_id" class="custom-select" id="addProfessorID">
-            <option value=""></option>
             <% professors.forEach((professor) => {%>
             <option value="<%=professor.professor_id%>">
               <%=professor.professor_id%>: <%=professor.name%>
