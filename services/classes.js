@@ -47,7 +47,6 @@ async function updateClass(classId, classObject) {
         SET name = "${classObject.name}", 
         professor_id= "${classObject.professor_id}",
         class_category_id="${classObject.class_category_id}", 
-        current_enrollment="${classObject.current_enrollment}", 
         max_enrollment = "${classObject.max_enrollment}", 
         semester = "${classObject.semester}"
         WHERE class_id = "${classId}";`
