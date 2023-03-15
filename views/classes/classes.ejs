@@ -50,7 +50,8 @@
                 <%= class_inst.professor_id %>: <%= class_inst.professor_name %>
               </td>
               <td>
-                <%= class_inst.category_id %>: <%= class_inst.class_category_name %>
+                <%= class_inst.category_id %>: <%=
+                class_inst.class_category_name %>
               </td>
               <td class="text-center">
                 <a href="/classes/<%=class_inst.class_id%>/edit"
@@ -92,7 +93,7 @@
         <div class="form-group">
           <label for="addEnrollment">Max Enrollment</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="addEnrollment"
             placeholder="Enter Max Enrollment"
