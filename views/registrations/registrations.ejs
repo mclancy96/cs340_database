@@ -45,7 +45,7 @@
               </td>
               <td>
                 <%=registration.class_id%>: <%= classes.find(classs =>
-                classs.class_id == registration.class_id).class_name %>
+                classs.class_id == registration.class_id).name %>
               </td>
               <td><%=registration.date_time_of_registration%></td>
               <td><%=registration.semester%></td>
@@ -94,7 +94,7 @@
           >
             <% classes.forEach(classInst => {%>
             <option value="<%=classInst.class_id%>">
-              <%=classInst.class_id%>: <%=classInst.class_name%>
+              <%=classInst.class_id%>: <%=classInst.name%>
             </option>
             <%}) %>
           </select>
