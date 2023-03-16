@@ -41,15 +41,16 @@
             <% classes.forEach((class_inst) => {%>
             <tr>
               <th scope="row"><%= class_inst.class_id %></th>
-              <td><%= class_inst.class_name %></td>
+              <td><%= class_inst.name %></td>
               <td><%= class_inst.current_enrollment %></td>
               <td><%= class_inst.max_enrollment %></td>
               <td>
-                <%= class_inst.professor_id %>: <%= class_inst.professor_name %>
+                <% if(class_inst.professor_id){%> <%= professors.find(pro =>
+                pro.professor_id == class_inst.professor_id).name %> <% } %>
               </td>
               <td>
-                <%= class_inst.category_id %>: <%=
-                class_inst.class_category_name %>
+                <%= class_inst.class_category_id %>: <%= categories.find(cat =>
+                cat.class_category_id == class_inst.class_category_id).name %>
               </td>
               <td class="text-center">
                 <a href="/classes/<%=class_inst.class_id%>/edit"
