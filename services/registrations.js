@@ -15,13 +15,13 @@ async function getRegistrations() {
 
 async function createRegistration(registrationObject) {
     const dateNow = (new Date(Date.now()));
-    const semester = await getSemester(registrationObject.class_id);
+    //const semester = await getSemester(registrationObject.class_id);
     const updateStatus = await db.query(
         `INSERT INTO Registrations (student_id, class_id, date_time_of_registration, semester)
         VALUES("${registrationObject.student_id}", 
         "${registrationObject.class_id}",
         "${dateNow.toISOString().slice(0, 10)}", 
-        "${semester}");`
+        "${registrationObject.semester_name}");`
     );
     return updateStatus;
 }
