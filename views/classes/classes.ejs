@@ -38,7 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <% classes.forEach((class_inst) => {%> <%console.log(class_inst)%>
+            <% classes.forEach((class_inst) => {%>
             <tr>
               <th scope="row"><%= class_inst.class_id %></th>
               <td><%= class_inst.class_name %></td>
@@ -102,6 +102,7 @@
         <div class="form-group">
           <label for="addProfessorId">Professor</label>
           <select name="professor_id" class="custom-select" id="addProfessorID">
+            <option value="None">No Professor</option>
             <% professors.forEach((professor) => {%>
             <option value="<%=professor.professor_id%>">
               <%=professor.professor_id%>: <%=professor.name%>
