@@ -46,7 +46,8 @@
               <td><%= class_inst.max_enrollment %></td>
               <td>
                 <% if(class_inst.professor_id){%> <%= professors.find(pro =>
-                pro.professor_id == class_inst.professor_id).name %> <% } %>
+                pro.professor_id == class_inst.professor_id).name %> <% } else
+                {%> No Professor Assigned <%} %>
               </td>
               <td>
                 <%= class_inst.class_category_id %>: <%= categories.find(cat =>

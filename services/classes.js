@@ -48,6 +48,7 @@ async function updateClass(classId, classObject) {
         const updateStatus = await db.query(
             `UPDATE Classes
             SET name = "${classObject.name}", 
+            professor_id = Null,
             class_category_id="${classObject.class_category_id}", 
             max_enrollment = "${classObject.max_enrollment}"
             WHERE class_id = "${classId}";`
