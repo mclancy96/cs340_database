@@ -1,6 +1,10 @@
 /*
     SETUP
 */
+
+/*
+    ALL THE CODE IN THIS PROJECT IS OUR ORIGINAL WORK
+*/
 const express = require('express');
 var app = express();
 PORT = 7892;
